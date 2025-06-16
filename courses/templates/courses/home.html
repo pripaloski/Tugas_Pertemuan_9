@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .nav {
+            margin-bottom: 20px;
+        }
+        .nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'course_list' %}">Courses</a>
+            <a href="{% url 'admin:index' %}">Admin</a>
+        </div>
+        <h1>Welcome to Course Management System</h1>
+        <p>This is a simple course management system built with Django.</p>
+        <h2>Available Features:</h2>
+        <ul>
+            <li>View all courses</li>
+            <li>Course membership management</li>
+            <li>Admin interface</li>
+        </ul>
+    </div>
+</body>
+</html> 

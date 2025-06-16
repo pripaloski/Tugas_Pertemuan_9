@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .nav {
+            margin-bottom: 20px;
+        }
+        .nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        .course-list {
+            list-style: none;
+            padding: 0;
+        }
+        .course-item {
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .course-name {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .course-teacher {
+            color: #666;
+            font-style: italic;
+        }
+        .course-price {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'course_list' %}">Courses</a>
+            <a href="{% url 'admin:index' %}">Admin</a>
+        </div>
+        <h1>Available Courses</h1>
+        {% if courses %}
+            <ul class="course-list">
+            {% for course in courses %}
+                <li class="course-item">
+                    <div class="course-name">{{ course.name }}</div>
+                    <div class="course-teacher">Taught by: {{ course.teacher }}</div>
+                    <div class="course-price">Price: ${{ course.price }}</div>
+                    <p>{{ course.description }}</p>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No courses available.</p>
+        {% endif %}
+    </div>
+</body>
+</html> 
